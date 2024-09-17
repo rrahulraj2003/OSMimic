@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Part 1 - Step 1 and 2: Do your tricks here
+/* Part 1 - Sztep 1 and 2: Do your tricks here
  * Your goal must be to change the stack frame of caller (main function)
  * such that you get to the line after "r2 = *( (int *) 0 )"
  */
@@ -26,8 +26,11 @@ int main(int argc, char *argv[]) {
 
     /* Step 1: Register signal handler first*/
 
+    signal_handle(SIGSEGV); // UGHHHH i think we gotta use this
 
     r2 = *( (int *) 0 ); // This will generate segmentation fault
+    
+    int p = *((int *) 0x000055555555521d);
 
     r2 = r2 + 1 * 45;
     printf("result after handling seg fault %d!\n", r2);
