@@ -1,6 +1,6 @@
-/*
-* Add NetID and names of all project partners
-*
+/*                                                                                                                  
+* rr1185 - Rahulraj Rajesh                                                                       
+* st1005 - Sibi Suriyanarayan Tiruchirapalli Venketaramani                                                                                                                  
 */
 #include <stdio.h>
 #include <stdlib.h>
