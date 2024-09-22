@@ -17,9 +17,18 @@ void signal_handle(int signalno) {
     i = i + 1; //just incrementing a variable.                                                                      
 
     /* Step 2: Handle segfault and change the stack*/
-    signal(SIGSEGV, SIG_IGN);
+    siglongjmp(); //increment program counter maybe using this, idk
 
-    printf("%p\n", &signalno);
+    //to use GDB:
+    //layout split
+    //b main
+    //r
+
+    //Where is program counter?
+    //eip is program counter apparently
+    //use "info frame"
+
+    //_find pc location, then increment by the seg fault instruction's length to skip it
 
 }
 
