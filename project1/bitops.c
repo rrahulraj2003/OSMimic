@@ -1,11 +1,10 @@
-/*                                                                                                                  
-* rr1185 - Rahulraj Rajesh                                                                       
-* st1005 - Sibi Suriyanarayan Tiruchirapalli Venketaramani                                                                                                                  
+/*
+* Add NetID and names of all project partners
+*
 */
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <math.h>
 
 #define NUM_TOP_BITS 4 //top bits to extract
 #define BITMAP_SIZE 4 //size of the bitmap array
@@ -19,11 +18,8 @@ static unsigned int myaddress = 4026544704;   // Binary  would be 11110000000000
  */
 static unsigned int get_top_bits(unsigned int value,  int num_bits)
 {
-    unsigned int cross = ((int) (2 << num_bits) - 1) << (8 * BITMAP_SIZE - num_bits);
-    
-    unsigned int gimme = value & cross; //Removing all but the top bits
-
-    return gimme >> 8 * BITMAP_SIZE - num_bits; //moving bits to get top bit
+	//Implement your code here
+	
 }
 
 
@@ -33,13 +29,9 @@ static unsigned int get_top_bits(unsigned int value,  int num_bits)
  */
 static void set_bit_at_index(char *bitmap, int index)
 {
-    unsigned int manip = bitmap[index / 8]; //useless line cause empty but keep it anyway
+    //Implement your code here	
 
-    unsigned int bit = 1 << index % 8;
-
-    manip = manip | bit;
-
-    bitmap[index / 8] = manip;
+    return;
 }
 
 
@@ -47,14 +39,10 @@ static void set_bit_at_index(char *bitmap, int index)
  * Function 3: GETTING A BIT AT AN INDEX 
  * Function to get a bit at "index"
  */
-static int get_bit_at_index(char *bitmap, int index) //wrong i think
+static int get_bit_at_index(char *bitmap, int index)
 {
-
-    unsigned int manip = bitmap[index / 8];
-
-    manip = manip >> (index % 8);
-
-    return manip % 2;
+    //Get to the location in the character bitmap array
+    //Implement your code here
     
 }
 
