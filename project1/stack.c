@@ -10,25 +10,15 @@
  * Your goal must be to change the stack frame of caller (main function)                                            
  * such that you get to the line after "r2 = *( (int *) 0 )"                                                        
  */
-void signal_handle(int signalno) {
+void signal_handle(int signalno) { //0xffffbfe0
+
+    char* ninja = (char *) &signalno + 60;
+
+    *ninja += 5;
 
     int i = 0;
     printf("handling segmentation fault!\n");
     i = i + 1; //just incrementing a variable.                                                                      
-
-    /* Step 2: Handle segfault and change the stack*/
-    siglongjmp(); //increment program counter maybe using this, idk
-
-    //to use GDB:
-    //layout split
-    //b main
-    //r
-
-    //Where is program counter?
-    //eip is program counter apparently
-    //use "info frame"
-
-    //_find pc location, then increment by the seg fault instruction's length to skip it
 
 }
 
@@ -40,8 +30,6 @@ int main(int argc, char *argv[]) {
     signal(SIGSEGV, signal_handle);
 
     r2 = *( (int *) 0 ); // This will generate segmentation fault   
-
-    printf("bruh");                                                
 
     r2 = r2 + 1 * 45;
     printf("result after handling seg fault %d!\n", r2);
